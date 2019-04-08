@@ -1,3 +1,41 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost","root","newhorizon","ACCASE");
+if(!$conn){  
+  die('Could not connect: '.mysqli_connect_error());  
+}
+if (isset($_POST['submit']))
+{
+	$fname=$_POST['fname'];
+	$roll=$_POST['roll'];
+	$mobileno=$_POST['mob'];
+	$email=$_POST['email'];
+	$password=$_POST['pw'];
+	$cpw=$_POST['cpw'];
+	$sql = "INSERT INTO acc_ase(`fname`,`roll`,`mobileno`,`email`,`password`,`cpw`) VALUES ('$fname', '$roll', '$mobileno', '$email', '$password', '$cpw');";
+
+	if(mysqli_query($conn, $sql))
+	{  
+		$message = "You have been successfully registered";
+	}
+	else
+	{  
+		$message = "Could not insert record"; 
+	}
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	$sql1 = "INSERT INTO php_users_login(`email`, `password`) VALUES ('$email', '$pw');";
+	if(mysqli_query($conn, $sql1))
+	{  
+		$message1 = "Added in login table";
+	}
+	else
+	{  
+		$message1 = "Could not insert record";
+	}	 
+	echo "<script type='text/javascript'>alert('$message1');</script>";
+}
+?>
+
 <HTML>
 <HEAD>
 <TITLE>ASE Eats - Create An Account</TITLE>
@@ -44,22 +82,16 @@ function validate()
 		alert("Enter valid first name");
 		return false;
 	}
-	if(fname.value.match(alphaExp)){}
-	else{
-		alert("First name can have only letters");
-		fname.focus();
-		return false;
-	}
-	if(lname.value==null || lname.value=="")
+	if(rollno.value==null || rollno.value=="")
 	{
 		lname.focus();
 		alert("Enter valid last name");
 		return false;
 	}
-	if(lname.value.match(alphaExp)){}
-	else{
-		alert("Last name can have only letters");
+	if(EmailId.value==null || EmailId.value=="")
+	{
 		lname.focus();
+		alert("Enter valid last name");
 		return false;
 	}
 	if(mob.value==null || mob.value==" ")
@@ -78,18 +110,6 @@ function validate()
 	{
 		alert("Enter the valid Mobile Number(Like : 9669666999)");
 		mob.focus();
-		return false;
-	}
-	if(location.selectedIndex==0)
-	{
-		alert("Please select location");
-		location.focus();
-		return false;		
-	}
-	if(addr.value==" " || addr.value=="")
-	{
-		alert("Please Enter Your Address");
-		addr.focus();
 		return false;
 	}
 	if (confirm("Do you want to submit your details?") == true) {} 
@@ -116,7 +136,7 @@ function validate()
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Roll No:</FONT></TD>
-<TD><INPUT type="TEXT" name="roll" align="center" size="30" maxlength="30" placeholder="Enter your last name" id="lname"></TD>
+<TD><INPUT type="TEXT" name="roll" align="center" size="50" maxlength="50" placeholder="Enter your last name" id="roll"></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Mobile Number:</FONT></TD>
@@ -124,22 +144,22 @@ function validate()
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">E-Mail ID:</FONT></TD>
-<TD><INPUT name="email" type="TEXT" id="email" placeholder="Enter your E-Mail ID" size="30" maxlength="30"></TD>
+<TD><INPUT name="email" type="TEXT" id="email" placeholder="Enter your E-Mail ID" size="50" maxlength="50"></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Password:</FONT></TD>
-<TD><INPUT type="PASSWORD" name="pw" size="30"  id="pw"></TD>
+<TD><INPUT type="PASSWORD" name="pw" placeholder="Enter your password" size="30"  id="pw"></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Confirm Password:</FONT></TD>
-<TD><INPUT type="PASSWORD" name="cpw" size="30" id="cpw"></TD>
+<TD><INPUT type="PASSWORD" name="cpw" placeholder="Re-enter your password" size="30" id="cpw"></TD>
 </TR>
 
 </TABLE>
-<P align="center"><INPUT TYPE="Submit" value="Submit" name="submit" id="submit" class="button" onclick="if(!this.form.tc.checked){alert('You must agree to the terms first.');return false}">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<P align="center"><INPUT TYPE="Submit" value="Submit" name="submit" id="submit" class="button">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <INPUT TYPE="Reset" value="Reset" id="reset" class="button"></P></FORM>
 <HR width="1000">
-<FORM action="login.php">
+<FORM action="log.php">
 <P align="CENTER"><FONT size="6" color="white" face="Arial">
 Already have an account with us?<BR></FONT>
 <INPUT TYPE="submit" value="Login" id="login" class="button">
