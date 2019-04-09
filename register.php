@@ -23,7 +23,7 @@ if (isset($_POST['submit']))
 		$message = "Could not insert record"; 
 	}
 	echo "<script type='text/javascript'>alert('$message');</script>";
-	$sql1 = "INSERT INTO php_users_login(`email`, `password`) VALUES ('$email', '$pw');";
+	$sql1 = "INSERT INTO php_users_login(`email`, `password`) VALUES ('$email', '$password');";
 	if(mysqli_query($conn, $sql1))
 	{  
 		$message1 = "Added in login table";
@@ -79,19 +79,19 @@ function validate()
 	if(fname.value==null || fname.value=="")
 	{
 		fname.focus();
-		alert("Enter valid first name");
+		alert("Enter valid full name");
 		return false;
 	}
 	if(rollno.value==null || rollno.value=="")
 	{
 		lname.focus();
-		alert("Enter valid last name");
+		alert("Enter valid college roll number");
 		return false;
 	}
 	if(EmailId.value==null || EmailId.value=="")
 	{
 		lname.focus();
-		alert("Enter valid last name");
+		alert("Enter valid email-ID");
 		return false;
 	}
 	if(mob.value==null || mob.value==" ")
