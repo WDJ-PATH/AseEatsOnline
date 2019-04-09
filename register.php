@@ -132,11 +132,11 @@ function validate()
 <CAPTION><FONT size="6" color="WHITE">Enter your details:</FONT></CAPTION>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Full Name:</FONT></TD>
-<TD><INPUT name="fname" type="TEXT" placeholder="Enter your first name" size="50" maxlength="50" align="center" id="fname"></TD>
+<TD><INPUT name="fname" type="TEXT" placeholder="Enter your full name" size="50" maxlength="50" align="center" id="fname"></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Roll No:</FONT></TD>
-<TD><INPUT type="TEXT" name="roll" align="center" size="50" maxlength="50" placeholder="Enter your last name" id="roll"></TD>
+<TD><INPUT type="TEXT" name="roll" align="center" size="50" maxlength="50" placeholder="Enter your college roll number" id="roll"></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Mobile Number:</FONT></TD>
