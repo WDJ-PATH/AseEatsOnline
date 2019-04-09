@@ -52,31 +52,8 @@ function validate()
 	var alphaExp = /^[a-zA-Z]+$/;
 	var atpos = EmailId.value.indexOf("@");
     var dotpos = EmailId.value.lastIndexOf(".");
- 	if(pw.value.length< 8 || cpw.value.length< 8)
-	{
-		alert("Please enter a password of atleast 8 characters");
-		pw.focus();
-		return false;
-	}
-	else if (pw.value.length != cpw.value.length) 
-	{
-		alert("Passwords do not match.");
-		pw.focus();
-        return false;
-    }
-	else if (pw.value != cpw.value) 
-	{
-		alert("Passwords do not match.");
-		pw.focus();
-        return false;
-    }
-	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=EmailId.value.length) 
-	{
-        alert("Enter valid email-ID");
-		EmailId.focus();
-        return false;
-   	}
-	if(fname.value==null || fname.value=="")
+
+    if(fname.value==null || fname.value=="")
 	{
 		fname.focus();
 		alert("Enter valid full name");
@@ -86,12 +63,6 @@ function validate()
 	{
 		lname.focus();
 		alert("Enter valid college roll number");
-		return false;
-	}
-	if(EmailId.value==null || EmailId.value=="")
-	{
-		lname.focus();
-		alert("Enter valid email-ID");
 		return false;
 	}
 	if(mob.value==null || mob.value==" ")
@@ -112,12 +83,43 @@ function validate()
 		mob.focus();
 		return false;
 	}
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=EmailId.value.length) 
+	{
+        alert("Enter valid email-ID");
+		EmailId.focus();
+        return false;
+   	}
+
+	if(EmailId.value==null || EmailId.value=="")
+	{
+		lname.focus();
+		alert("Enter valid email-ID");
+		return false;
+	}
+
+ 	if(pw.value.length< 8 || cpw.value.length< 8)
+	{
+		alert("Please enter a password of atleast 8 characters");
+		pw.focus();
+		return false;
+	}
+	else if (pw.value.length != cpw.value.length) 
+	{
+		alert("Passwords do not match.");
+		pw.focus();
+        return false;
+    }
+	else if (pw.value != cpw.value) 
+	{
+		alert("Passwords do not match.");
+		pw.focus();
+        return false;
+    }
 	if (confirm("Do you want to submit your details?") == true) {} 
 	else 
 	{
        return false;
     }
-    var survey=prompt("How did you hear about us? (Used only for survey)");
 	return true;
 }
 </SCRIPT>
