@@ -1,4 +1,18 @@
+<?php
+session_start();
+?>
 <HTML>
+<script type="text/javascript">
+var myvar='<?php echo $_SESSION['check'];?>';
+if(myvar!='')
+{
+	alert("<?php echo $_SESSION['check'];?>");
+}
+else
+{
+	alert("Successfully logged in!");
+}
+</script>
 <HEAD>
 <TITLE>Welcome to ASEeats Online!</TITLE>
 <style type="text/css">
@@ -23,7 +37,7 @@
 <div id="form-content">
 	<div class="welcome" style="display: block;">
 		<center><a href="order.php" style="color:#ffffff">Place an order</a></center>
-		<center><a href="changepw.php" style="color:#ffffff">Change password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<center><a href="changepw1.php" style="color:#ffffff">Change password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="deact.php" style="color:#ffffff">Deactivate your account</a></center><br /><br/>
 		<section align="right"><a href="log.php?ac=logout" style="color:#ffffff">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</section>
 		<script>

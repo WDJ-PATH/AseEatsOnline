@@ -53,24 +53,6 @@ function validate()
 	var atpos = EmailId.value.indexOf("@");
     var dotpos = EmailId.value.lastIndexOf(".");
 
-    if(fname.value==null || fname.value=="")
-	{
-		fname.focus();
-		alert("Enter valid full name");
-		return false;
-	}
-	if(rollno.value==null || rollno.value=="")
-	{
-		lname.focus();
-		alert("Enter valid college roll number");
-		return false;
-	}
-	if(mob.value==null || mob.value==" ")
-	{
-		alert("Please Enter Mobile Number");
-		mob.focus();
-		return false;
-	}
 	if (isNaN(mob.value))
 	{
 		alert(" Your Mobile Number must be Integers");
@@ -89,13 +71,6 @@ function validate()
 		EmailId.focus();
         return false;
    	}
-
-	if(EmailId.value==null || EmailId.value=="")
-	{
-		lname.focus();
-		alert("Enter valid email-ID");
-		return false;
-	}
 
  	if(pw.value.length< 8 || cpw.value.length< 8)
 	{
@@ -134,27 +109,27 @@ function validate()
 <CAPTION><FONT size="6" color="WHITE">Enter your details:</FONT></CAPTION>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Full Name:</FONT></TD>
-<TD><INPUT name="fname" type="TEXT" placeholder="Enter your full name" size="50" maxlength="50" align="center" id="fname"></TD>
+<TD><INPUT name="fname" type="TEXT" placeholder="Enter your full name" size="50" maxlength="50" align="center" id="fname" required></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Roll No:</FONT></TD>
-<TD><INPUT type="TEXT" name="roll" align="center" size="50" maxlength="50" placeholder="Enter your college roll number" id="roll"></TD>
+<TD><INPUT type="TEXT" name="roll" align="center" size="50" maxlength="50" placeholder="Enter your college roll number" id="roll" required></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Mobile Number:</FONT></TD>
-<TD><INPUT type="TEXT" name="mob" size="30" maxlength="10" placeholder="Enter your mobile number" id="mob"></TD>
+<TD><INPUT type="TEXT" name="mob" size="30" maxlength="10" placeholder="Enter your mobile number" id="mob" required></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">E-Mail ID:</FONT></TD>
-<TD><INPUT name="email" type="TEXT" id="email" placeholder="Enter your E-Mail ID" size="50" maxlength="50"></TD>
+<TD><INPUT name="email" type="TEXT" id="email" placeholder="Enter your E-Mail ID" size="50" maxlength="50" required></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Password:</FONT></TD>
-<TD><INPUT type="PASSWORD" name="pw" placeholder="Enter your password" size="30"  id="pw"></TD>
+<TD><INPUT type="PASSWORD" name="pw" placeholder="Enter your password" size="30"  id="pw" required></TD>
 </TR>
 <TR class="left">
 <TD><FONT size="5" color="WHITE">Confirm Password:</FONT></TD>
-<TD><INPUT type="PASSWORD" name="cpw" placeholder="Re-enter your password" size="30" id="cpw"></TD>
+<TD><INPUT type="PASSWORD" name="cpw" placeholder="Re-enter your password" size="30" id="cpw" required></TD>
 </TR>
 
 </TABLE>

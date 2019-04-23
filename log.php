@@ -1,7 +1,9 @@
 <?php
 session_start();
-$_SESSION['message']='';
+$_SESSION['message']=null;
+$_SESSION['check']='';
 $_SESSION['email']=null;
+
 
 if($_SESSION['email']==null) 
 {
@@ -34,8 +36,10 @@ else
 else
 {
 	header("location:log.php");
-	alert("Already logged into another account, logout first!");
+	$_SESSION['message']="Already logged into another account, logout first!";
+	exit();
 }
+
 ?>
 
 <!DOCTYPE html>
