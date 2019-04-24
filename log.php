@@ -5,33 +5,35 @@ $_SESSION['check']='';
 $_SESSION['email']=null;
 
 
+
 if($_SESSION['email']==null) 
 {
-include_once("log.php");	
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-	$conn =new mysqli('localhost','root','newhorizon','ACCASE');
-	$email=$conn->real_escape_string($_POST['email']);
-	$password=$conn->real_escape_string($_POST['pw']);
-	$res= $conn->query("SELECT * FROM php_users_login WHERE email='$email'");
-	if( $res->num_rows <= 0 ){
-	$_SESSION['message']="User does not exist.";
-	} 
-else
-{	
-	$user = $res->fetch_assoc();
-    if($password===$user['password']){
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['logged_in'] = true;
-        header("location:index1.php ");
-        exit();
-    }
-	else
+	include_once("log.php");	
+	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		$_SESSION['message']="You have entered the wrong password. Try again.";
+		$conn =new mysqli('localhost','root','newhorizon','ACCASE');
+		$email=$conn->real_escape_string($_POST['email']);
+		$password=$conn->real_escape_string($_POST['pw']);
+		$res= $conn->query("SELECT * FROM php_users_login WHERE email='$email'");
+		if( $res->num_rows <= 0 ){
+		$_SESSION['message']="User does not exist.";
+		} 
+		else
+		{	
+			$user = $res->fetch_assoc();
+    		if($password===$user['password'])
+    		{
+        		$_SESSION['email'] = $user['email'];
+        		$_SESSION['logged_in'] = true;
+        		header("location:index1.php ");
+        		exit();
+    		}
+			else
+			{
+				$_SESSION['message']="You have entered the wrong password. Try again.";
+			}
+		}
 	}
-}
-}
 }
 else
 {
@@ -44,7 +46,16 @@ else
 
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript">
+var myvar='<?php echo $_SESSION['check1'];?>';
+if(myvar!='')
+{
+	alert("<?php echo $_SESSION['check1'];?>");
+	<?php session_destroy();?>
+}
+</script>
 <head>
+
 	<title>ASEeats v1</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,7 +161,7 @@ function validate()
 						</a>
 					</div>
 					</form>
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+				<div class="login100-more" style="background-image: url('1.jpg');background-size:120% 100%;"></div>
 			</div>
 		</div>
 	</div>

@@ -99,7 +99,16 @@ function validate()
 }
 </SCRIPT>
 </HEAD>
-<BODY  background="background3.jpg" link="white" alink="white" vlink="white">
+<style type="text/css">
+body {
+    background-image: url('1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+   }
+</style>
+<BODY  id="body" link="white" alink="white" vlink="white">
 <FONT size="4"><NAV align="right">
 <A HREF="">Menu</A>
 <A HREF="register.php">Login/Register</A></FONT></NAV>
@@ -135,6 +144,14 @@ function validate()
 </TABLE>
 <P align="center"><INPUT TYPE="Submit" value="Submit" name="submit" id="submit" class="button">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 <INPUT TYPE="Reset" value="Reset" id="reset" class="button"></P></FORM>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
 <HR width="1000">
 <FORM action="log.php">
 <P align="CENTER"><FONT size="6" color="white" face="Arial">

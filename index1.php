@@ -8,10 +8,6 @@ if(myvar!='')
 {
 	alert("<?php echo $_SESSION['check'];?>");
 }
-else
-{
-	alert("Successfully logged in!");
-}
 </script>
 <HEAD>
 <TITLE>Welcome to ASEeats Online!</TITLE>
@@ -23,10 +19,23 @@ else
    a:active {color: #ffffff}
 </style>
 </HEAD>
-<BODY background="background1.jpg">
-<?php include("header.php"); ?>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+body {
+    background-image: url('1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+   }
+</style>
+<BODY id="body">
+<FONT size="4" color="white">
+<NAV align="right">
+<A HREF="log.php">LOGOUT</A>&nbsp&nbsp&nbsp
+</FONT></NAV>
 <FONT size="5" color="white">
-<SECTION align="center"><A HREF="index.php"><IMG SRC="logo.png" alt="Home" id="logo"></IMG></A></SECTION>
+<SECTION align="center"><A HREF=""><IMG SRC="log.png" alt="Home"></IMG></A></SECTION>
 <SECTION>
 <MAIN>
 <B><P>Welcome, you are logged in. 
@@ -39,7 +48,6 @@ else
 		<center><a href="order.php" style="color:#ffffff">Place an order</a></center>
 		<center><a href="changepw1.php" style="color:#ffffff">Change password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="deact.php" style="color:#ffffff">Deactivate your account</a></center><br /><br/>
-		<section align="right"><a href="log.php?ac=logout" style="color:#ffffff">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</section>
 		<script>
 		if (window.performance && window.performance.navigation.type == window.performance.navigation.TYPE_BACK_FORWARD) 
         	{

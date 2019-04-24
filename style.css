@@ -36,12 +36,8 @@ tr.left{text-align:left}
   opacity: 1;
   right: 0;
 }
-img#logo{
--webkit-filter: drop-shadow(10px 10px 10px red);
-       filter: drop-shadow(8px 8px 10px red);
-}
-* {
-    max-width: 100%;
-    height: auto;
+img#logo{ 
+    max-width: 50%;
+    height: 50%;
 	font-family: 'Roboto', sans-serif;
 }

@@ -43,6 +43,11 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
+  background-image: url('1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
 }
 
 /*---------------------------------------------*/
@@ -185,7 +190,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  background: #654321;
 }
 
 .wrap-login100 {
@@ -207,8 +212,8 @@ iframe {
 [ login more ]*/
 .login100-more {
   width: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: contain;
   background-position: center;
   position: relative;
   z-index: 1;
