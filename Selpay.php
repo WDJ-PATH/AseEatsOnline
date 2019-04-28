@@ -224,7 +224,7 @@ function validate()
 			</br>
 			</br>
 			<form class="reveal-if-active" method="POST" action="Selpay.php" onsubmit="return validate()">
-				<input class="require-if-active" type="text" class="input" name="upiid" id="upiid" placeholder="Enter your UPI ID" pattern="[a-z0-9@]+" autocomplete="off" style="border-radius: 6px;" required>
+				<input class="require-if-active" type="text" class="input" name="upiid" id="upiid" placeholder="Enter your UPI ID" pattern="[a-z0-9]+[@][a-z]+" autocomplete="off" style="border-radius: 6px;" required>
 				</br>
 				</br>
 				<input class="require-if-active" type="password" class="input" name="upipin" id="upipin" placeholder="Enter your UPI Pin" pattern="[0-9]+" autocomplete="off" style="border-radius: 6px;" required>
