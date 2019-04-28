@@ -71,20 +71,57 @@ function validate()
 	return true;
 }
 </SCRIPT>
+<style type="text/css">
+body {
+    background-image: url('1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  background-size: cover;
+   }
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  font-size: 20px;
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  background-color: #4CAF50;
+}
 
-<BODY background="background1.jpg">
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.white-box {
+	border-radius: 15px 50px;
+    background-color: #EBEBEB;
+    color: black;
+    width: 700px;
+  	height: 550px;
+  	padding: 50px;
+  	position: relative;
+  	left: 240px;
+}
+
+</style>
+<BODY id="body">
 <header align="right"><FONT color="white" size=3><a href="index1.php">Home</a></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</header>
 <div class="container">
+<div class="white-box">
 <div class="row">
 <div class="col-sm-12">
 <FONT color="white">
-<h1>Change Password</h1></FONT>
+<h1 align="center" style="color: #000000">Change Password</h1></FONT>
+</br>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-6 col-sm-offset-3">
 <FONT color="white">
-<p class="text-center">Use the form below to change your password. Your password cannot be the same as your username.</p>
+<p class="text-center" style="color: #000000">Use the form below to change your password. Your password cannot be the same as your username.</p>
 </FONT>
 <form method="post" id="passwordForm" action="changepw1.php" onsubmit="return validate()">
 <input type="password" class="input-lg form-control" name="cp" id="cp" placeholder="Current Password" autocomplete="off" required="Please enter current password!">
@@ -93,26 +130,25 @@ function validate()
 <FONT color="white">
 <div class="row">
 <div class="col-sm-6">
-<span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Characters Long<br>
-<span id="ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> One Uppercase Letter
 </div>
 <div class="col-sm-6">
-<span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> One Lowercase Letter<br>
-<span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> One Number
 </div>
 </div>
 </FONT>
+</br>
 <input type="password" class="input-lg form-control" name="password2" id="password2" placeholder="Repeat Password" autocomplete="off" required="Please enter the password again!">
 <div class="row">
 <div class="col-sm-12">
 <FONT color="white">
-<span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
 </FONT>
 </div>
 </div>
-<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
+</br>
+</br>
+<input type="submit" align="center" class="button" data-loading-text="Changing Password..." value="Change Password">
 </form>
 </div><!--/col-sm-6-->
 </div><!--/row-->
+</div>
 </div>
 </BODY>

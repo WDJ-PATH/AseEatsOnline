@@ -9,8 +9,8 @@
 <A HREF="index1.php">Home</A>&nbsp&nbsp&nbsp
 <?php  
 session_start();
-if(isset($_SESSION['user_info']))
-	echo 'Welcome <A HREF="login.php"> '.$_SESSION['user_info'].'</a>';
+if(isset($_SESSION['name']))
+	echo 'Welcome <A HREF="login.php"> '.$_SESSION['name'].'</a>';
 else
 	echo '<A HREF="register.php">Login/Register</A>';
 ?>

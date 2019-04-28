@@ -28,16 +28,27 @@ body {
   background-position: top;
   background-size: cover;
    }
+.white-box {
+	border-radius: 15px 50px;
+    background-color: #EBEBEB;
+    color: black;
+    width: 450px;
+  	height: 250px;
+  	padding: 50px;
+  	position: relative;
+  	left: 395px;
+}
 </style>
 <BODY id="body">
 <FONT size="4" color="white">
 <NAV align="right">
 <A HREF="log.php">LOGOUT</A>&nbsp&nbsp&nbsp
 </FONT></NAV>
-<FONT size="5" color="white">
+<FONT size="5" color="black">
 <SECTION align="center"><A HREF=""><IMG SRC="log.png" alt="Home"></IMG></A></SECTION>
 <SECTION>
 <MAIN>
+<div class="white-box">
 <B><P>Welcome, you are logged in. 
         <br />
 		Thank you for choosing us.
@@ -45,9 +56,9 @@ body {
 <SECTION align="center"><IMG src="clickhere.gif" width="100" height="50"></IMG></SECTION>
 <div id="form-content">
 	<div class="welcome" style="display: block;">
-		<center><a href="order.php" style="color:#ffffff">Place an order</a></center>
-		<center><a href="changepw1.php" style="color:#ffffff">Change password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="deact.php" style="color:#ffffff">Deactivate your account</a></center><br /><br/>
+		<center><a href="order.php" style="color:#000000">Place an order</a></center>
+		<center><a href="changepw1.php" style="color:#000000">Change password</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="deact.php" style="color:#000000">Deactivate your account</a></center><br /><br/>
 		<script>
 		if (window.performance && window.performance.navigation.type == window.performance.navigation.TYPE_BACK_FORWARD) 
         	{
@@ -58,6 +69,7 @@ body {
 	</div>	
 </div>
 </SECTION>
+</div>
 </MAIN><BR><HR width="1000">
 <FOOTER >
 <FONT size="2" color="white">
