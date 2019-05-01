@@ -5,7 +5,7 @@
   tr:nth-child(even) {background-color: #f2f2f2;}
 
   body {
-    background-image: url('1.jpg');
+    background-image: url('b.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
