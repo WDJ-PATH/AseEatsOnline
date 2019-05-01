@@ -73,7 +73,7 @@ function validate()
 </SCRIPT>
 <style type="text/css">
 body {
-    background-image: url('1.jpg');
+    background-image: url('b.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
@@ -100,7 +100,7 @@ body {
     background-color: #EBEBEB;
     color: black;
     width: 700px;
-  	height: 550px;
+  	height: relative;
   	padding: 50px;
   	position: relative;
   	left: 240px;
@@ -108,9 +108,14 @@ body {
 
 </style>
 <BODY id="body">
-<header align="right"><FONT color="white" size=3><a href="index1.php">Home</a></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</header>
+<?php include("header.php"); ?>
+</br>
+</br>
+</br>
+<header align="right"></header>
 <div class="container">
 <div class="white-box">
+<SECTION align="center"><A HREF="/../index1.php"><IMG SRC="/../log.png" alt="Home"></IMG></A></SECTION>
 <div class="row">
 <div class="col-sm-12">
 <FONT color="white">

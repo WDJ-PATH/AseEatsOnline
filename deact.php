@@ -90,9 +90,14 @@ function validate()
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="post" action="deact.php" onsubmit="return validate()">
 					<span class="login100-form-title p-b-34">
+					<SECTION align=""><A HREF="/../index1.php"><IMG SRC="/../log.png" alt="Home"></IMG></A></SECTION>
 						Deactivate account ?
 					</span>
+					</br>
+					</br>
+					</br>
 					<div class="alert alert-error"><?=$_SESSION['message'] ?></div>
+					
 
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
 						<input class="input100" type="password" name="pw" id="pw" placeholder="Password">

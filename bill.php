@@ -32,6 +32,7 @@ $result = $mysqli->query($query);
 while ($row = $result->fetch_assoc()) {
   if($row['roll']===$_SESSION['roll'] and $row['order_id']==$_GET['id']){
     $token=$row['token'];
+    $est_time=$row['est_time'];
   }
 }
 
@@ -40,9 +41,13 @@ echo '</br>
       </br>
       </br>
       <div class="white-box" align="center">
+      <SECTION align=""><A HREF="/../index1.php"><IMG SRC="/../log.png" alt="Home"></IMG></A></SECTION>
       <b><font size="8" face="Courier New" color="black">Bill</font></b>
       </br>
       <font size="6" face="Courier New" color="black">Token Number : '.$token.'</font>
+      </br>
+      <font size="5" face="Courier New" color="black">Estimated Time : '.$est_time.'</font>
+      </br>
       </br>
       <table border="0" cellspacing="2" cellpadding="2" align="center" width="1200" height="200"> 
       <tr> 
@@ -60,16 +65,16 @@ if ($result = $mysqli->query($query)) {
         $field3name = $row["quantity"]*$row["product_price"];
         $tot+=$field3name;
         echo '<tr> 
-                  <td><a href="bill.php"><font face="Verdana">'.$field1name.'</font></a></td> 
+                  <td><font face="Verdana">'.$field1name.'</font></td> 
                   <td><font face="Verdana">'.$field2name.'</font></td> 
-                  <td><font face="Verdana">'.$field3name.'</font></td> 
+                  <td><font face="Verdana">Rs '.$field3name.'</font></td> 
               </tr>';
     }
   }
     echo '<tr>
                 <td></td>
                 <td><strong><font face="Verdana">Total Price</font></strong></td>
-                <td><font face="Verdana">'.$tot.'</font></td>
+                <td><font face="Verdana">Rs '.$tot.'</font></td>
           </tr>';
     $result->free();
 } 

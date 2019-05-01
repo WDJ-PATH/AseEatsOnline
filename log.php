@@ -8,7 +8,7 @@ $_SESSION['email']=null;
 
 if($_SESSION['email']==null) 
 {
-	include_once("log.php");	
+	include_once("log.php");
 	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$conn =new mysqli('localhost','root','newhorizon','ACCASE');
@@ -27,6 +27,15 @@ if($_SESSION['email']==null)
         		$_SESSION['name'] = $user['fname'];
         		$_SESSION['roll'] = $user['roll'];
         		$_SESSION['logged_in'] = true;
+        		$ban="SELECT * FROM `php_users_login`";
+    			if($banres = $conn->query($ban)){
+    			while($row1 = $banres->fetch_assoc()){
+      				if($row1['email']===$_SESSION['email']){
+        				$_SESSION['stat']=$row1['acc_status'];
+        				break;
+      				}
+    			}
+				}
         		header("location:index1.php ");
         		exit();
     		}
@@ -131,6 +140,7 @@ function validate()
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="post" action="log.php" onsubmit="return validate()">
 					<span class="login100-form-title p-b-34">
+					<SECTION align=""><A HREF=""><IMG SRC="/../log.png" alt="Home"></IMG></A></SECTION></br>
 						Login to ASE Eats
 					</span>
 					<div class="alert alert-error"><?=$_SESSION['message'] ?></div>
@@ -146,24 +156,17 @@ function validate()
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">Sign in</button>
 					</div>
-
-					<div class="w-full text-center p-t-27 p-b-239">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2">
-							User name / password?
-						</a>
-					</div>
-
+					</br>
+					</br>
 					<div class="w-full text-center">
+					</br>
+					</br>
 						<a href="register.php" class="txt3">
 							Sign Up
 						</a>
 					</div>
 					</form>
-				<div class="login100-more" style="background-image: url('1.jpg');background-size:120% 100%;"></div>
+				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 			</div>
 		</div>
 	</div>
