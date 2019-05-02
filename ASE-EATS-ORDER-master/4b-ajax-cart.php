@@ -71,7 +71,7 @@ switch ($_POST['req']) {
       </tr>
     </table>
     <?php if (count($_SESSION['cart']) > 0) { ?>
-    <form id="cart-checkout" onsubmit="return cart.checkout();">
+    <form id="cart-checkout" method="post" onsubmit="return cart.checkout();">
       <input type="text" id="co_name" required value="<?=$_SESSION['name']?>" />
       <input type="email" id="co_email" required value="<?=$_SESSION['email']?>" />
       <input type="submit" value="Checkout"/>
@@ -98,7 +98,7 @@ switch ($_POST['req']) {
     require PATH_LIB . "2b-lib-db.php";
     require PATH_LIB . "4c-lib-cart.php";
     $cartLib = new Cart();
-    if ($cartLib->checkout($_SESSION['name'], $_SESSION['email'])) {
+    if ($cartLib->checkout($_POST['name'], $_POST['email'])) {
       $_SESSION['cart'] = [];
       echo "OK";
     } else {
@@ -111,7 +111,7 @@ switch ($_POST['req']) {
   case "checkout-email":
     require PATH_LIB . "2b-lib-db.php";
     require PATH_LIB . "4c-lib-cart.php";
-    if ($cartLib->checkout($_SESSION['name'], $_SESSION['email'])) {
+    if ($cartLib->checkout($_POST['name'], $_POST['email'])) {
       $_SESSION['cart'] = [];
       // @TODO
       // Format this email message as you see fit

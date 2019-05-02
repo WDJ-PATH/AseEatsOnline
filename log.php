@@ -14,9 +14,19 @@ if($_SESSION['email']==null)
 		$conn =new mysqli('localhost','root','newhorizon','ACCASE');
 		$email=$conn->real_escape_string($_POST['email']);
 		$password=$conn->real_escape_string($_POST['pw']);
-		$res= $conn->query("SELECT * FROM acc_ase WHERE email='$email'");
+		$res= $conn->query("SELECT * FROM php_users_login WHERE email='$email'");
+		$res1= $conn->query("SELECT * FROM acc_ase WHERE email='$email'");
+		$user1 = $res1->fetch_assoc();
 		if( $res->num_rows <= 0 ){
-		$_SESSION['message']="User does not exist.";
+			if($res1->num_rows <= 0){
+				$_SESSION['message']="User does not exist.";
+			}
+			else{
+				if($password===$user1['password'])
+    			{
+        			$_SESSION['message']="Your account is deactivated!";
+        		}
+        	}
 		} 
 		else
 		{	
@@ -24,8 +34,8 @@ if($_SESSION['email']==null)
     		if($password===$user['password'])
     		{
         		$_SESSION['email'] = $user['email'];
-        		$_SESSION['name'] = $user['fname'];
-        		$_SESSION['roll'] = $user['roll'];
+        		$_SESSION['name'] = $user1['fname'];
+        		$_SESSION['roll'] = $user1['roll'];
         		$_SESSION['logged_in'] = true;
         		$ban="SELECT * FROM `php_users_login`";
     			if($banres = $conn->query($ban)){

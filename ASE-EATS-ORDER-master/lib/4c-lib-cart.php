@@ -28,8 +28,8 @@ class Cart extends DB {
     $token =  rand(1,200);
     $sql1="SELECT * FROM `token`";
     $result = $mysqli->query($sql1);
-    while($row = $result->fetch_assosc()){
-      if($token === $row['token']){
+    while($row1 = $result->fetch_assoc()){
+      if($token === $row1['token']){
         $token= rand(1,200);
       }
       else{
@@ -40,9 +40,7 @@ class Cart extends DB {
 
     // Create the order entry first
     $pass = $this->exec(
-      "INSERT INTO `orders` (`token`, `roll`, `name`, `email`, `total_price`) VALUES (?, ?, ?, ?, ?);",
-      [$token, $roll, $name, $email, $total]
-    );
+      "INSERT INTO `orders` (`order_id`, `order_date`, `token`, `roll`, `name`, `email`, `order_status`, `total_price`, `est_time`) VALUES (NULL, CURRENT_TIMESTAMP, '$token', '$roll', '$name', '$email', 'Cooking', '$total', '10 min');");
 
     // Insert the items
     if ($pass) {
