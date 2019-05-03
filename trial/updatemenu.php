@@ -8,11 +8,35 @@ if(!$mysqli){
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
   {
+  	if(isset($_FILES['image'])){
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size =$_FILES['image']['size'];
+      $file_tmp =$_FILES['image']['tmp_name'];
+      $file_type=$_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      
+      $extensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$extensions)=== false){
+         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"images/".$file_name);
+         echo "Success";
+      }else{
+         print_r($errors);
+      }
+   }
 	$name= $_POST['name'];
-	$img= $_POST['image'];
+	$img= $file_name;
 	$desc= $_POST['desc'];
 	$price= $_POST['price'];
-	echo $img;
 	$sql = "INSERT INTO products(`product_name`,`product_image`,`product_description`,`product_price`) VALUES ('$name', '$img', '$desc', '$price');";
 	if(mysqli_query($mysqli, $sql))
 	{  
@@ -28,13 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 ?>
 <HTML>
-<script type="text/javascript">
-var myvar='<?php echo $_SESSION['check'];?>';
-if(myvar!='')
-{
-	alert("<?php echo $_SESSION['check'];?>");
-}
-</script>
 <HEAD>
 <TITLE>UPDATE MENU |ADMIN | ASE EATS</TITLE>
 <style type="text/css">
@@ -188,7 +205,7 @@ echo '</br>
           </br>
       <font size="6" face="Courier New" color="black">ADD NEW PRODUCT</font>
       </br>
-      </div>';    
+      </div>';
 
 ?>
 <form align="center" id="form" action="updatemenu.php" method="post" enctype="multipart/form-data">

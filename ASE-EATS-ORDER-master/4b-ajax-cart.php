@@ -72,8 +72,8 @@ switch ($_POST['req']) {
     </table>
     <?php if (count($_SESSION['cart']) > 0) { ?>
     <form id="cart-checkout" method="post" onsubmit="return cart.checkout();">
-      <input type="text" id="co_name" required value="<?=$_SESSION['name']?>" />
-      <input type="email" id="co_email" required value="<?=$_SESSION['email']?>" />
+      <input type="text" id="co_name" required value="<?=$_SESSION['name']?>" hidden />
+      <input type="email" id="co_email" required value="<?=$_SESSION['email']?>" hidden/>
       <input type="submit" value="Checkout"/>
     </form>
     <?php }

@@ -152,7 +152,7 @@ body {
 <?php  
 
 
-$query = "SELECT * FROM `acc_ase`;";
+$query = "SELECT * FROM `acc_ase`,`php_users_login` WHERE `acc_ase`.`email`=`php_users_login`.`email`;";
 $result = $mysqli->query($query);
 
 echo '</br>
@@ -168,6 +168,7 @@ echo '</br>
           <td> <b><font face="Trebuchet MS" size="2">Name</font></b> </td> 
           <td> <b><font face="Trebuchet MS" size="2">Email ID</font></b> </td> 
           <td> <b><font face="Trebuchet MS" size="2">Roll Number</font></b> </td>
+          <td> <b><font face="Trebuchet MS" size="2">BANNED(0)/UNBANNED(1)</font></b> </td>
       </tr>
       </div>';
 
@@ -177,11 +178,13 @@ if ($result = $mysqli->query($query)) {
         $field1name = $row["fname"];
         $field2name = $row["email"];
         $field3name = $row["roll"];
+        $field4name = $row["acc_status"];
         
         echo '<tr> 
                   <td><font face="Verdana">'.$field1name.'</font></td> 
                   <td><font face="Verdana">'.$field2name.'</font></td> 
-                  <td><font face="Verdana">'.$field3name.'</font></td> 
+                  <td><font face="Verdana">'.$field3name.'</font></td>
+                  <td><font face="Verdana">'.$field4name.'</font></td>  
                   
               </tr>';
     

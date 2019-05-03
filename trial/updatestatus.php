@@ -194,7 +194,8 @@ if ($result = $mysqli->query($query)) {
   }
     
     $result->free(); 
-}     
+} 
+
 if(!$mysqli){  
     die('Could not connect: '.mysqli_connect_error());  
   }
@@ -202,6 +203,14 @@ if(!$mysqli){
   {
       $order_id=$_POST['field1'];
       $order_status=$_POST['field2'];
+      $queryx = "SELECT `order_status` FROM `orders` WHERE `order_id`='$order_id';";
+      $resultx = $mysqli->query($queryx);
+      $rowx = $resultx->fetch_assoc();
+      if($rowx['order_status']=='Delivered'){
+        $message = "Order already Delivered! Cannot change status anymore!";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+      }
+      else{
       $sql = "UPDATE `orders` SET `order_status`='$order_status' WHERE `order_id`='$order_id';";
       if(mysqli_query($mysqli, $sql))
       {  
@@ -215,7 +224,7 @@ if(!$mysqli){
       $sql2 = "UPDATE `acc_ase`,`orders`  SET `acc_ase`.`dept_due` = `acc_ase`.`dept_due`+`orders`.`total_price` WHERE `orders`.`roll`=`acc_ase`.`roll` AND `orders`.`order_status`='Cancelled';";
       if(mysqli_query($mysqli, $sql2))
       {  
-          $message = "Dues added";
+          $message = "Dues Updated";
       }
       else
       {  
@@ -225,17 +234,17 @@ if(!$mysqli){
       $sql3 ="UPDATE `orders` SET `order_status`='DUE' WHERE `order_status`='Cancelled';";
       if(mysqli_query($mysqli, $sql3))
       {  
-          $message = "Order Status:Cancelled updated";
+          $message = "Order Status updated";
       }
       else
       {  
-          $message = "Could not cancel order!"; 
+          $message = "Order Status updated!"; 
       }
       echo "<script type='text/javascript'>alert('$message');</script>";
       $sql4 ="UPDATE `php_users_login`,`acc_ase` SET `php_users_login`.`acc_status`=0 WHERE `php_users_login`.`email`=`acc_ase`.`email` AND `acc_ase`.`dept_due`>=200;";
       if(mysqli_query($mysqli, $sql4))
       {  
-          $message = "Account banned!";
+        $message = "User Account status updated";
       }
       else
       {  
@@ -256,7 +265,7 @@ if(!$mysqli){
         $headers = 'From: noreply@ASEeats.com';
         mail($to_email,$subject,$message,$headers);
       }
-
+    }
   }
 ?>
 
