@@ -22,11 +22,12 @@ class Cart extends DB {
   //       $email : customer's email address
 
     // Init
+    $mysqli = new mysqli("localhost", "root", "newhorizon", "ACCASE"); 
 
     $roll=$_SESSION['roll'];
     $total=$_SESSION['total'];
     $token =  rand(1,200);
-    $sql1="SELECT * FROM `token`";
+    $sql1="SELECT * FROM `orders` WHERE `order_status`!='Delivered' AND `order_status`!='DUE'";
     $result = $mysqli->query($sql1);
     while($row1 = $result->fetch_assoc()){
       if($token === $row1['token']){
@@ -40,10 +41,15 @@ class Cart extends DB {
 
     // Create the order entry first
     $pass = $this->exec(
-      "INSERT INTO `orders` (`order_id`, `order_date`, `token`, `roll`, `name`, `email`, `order_status`, `total_price`, `est_time`) VALUES (NULL, CURRENT_TIMESTAMP, '$token', '$roll', '$name', '$email', 'Cooking', '$total', '10 min');");
+      "INSERT INTO `orders` (`token`, `roll`, `name`, `email`, `total_price`) VALUES (?, ?, ?, ?, ?)",[$token, $roll, $name, $email, $total]);
+
 
     // Insert the items
     if ($pass) {
+    $sq="SELECT max(`order_id`) AS `id` FROM `orders`";
+    $res = $mysqli->query($sq);
+    $ss = $res->fetch_assoc();
+    $_SESSION['getid']=$ss['id'];
       $sql = "INSERT INTO `orders_items` (`order_id`, `product_id`, `quantity`) VALUES ";
       $cond = [];
       foreach ($_SESSION['cart'] as $id=>$qty) {
@@ -53,7 +59,6 @@ class Cart extends DB {
       $sql = substr($sql, 0, -1) . ";";
       $pass = $this->exec($sql, $cond);
     }
-
     // Finalize
     $this->end($pass);
     return $pass;

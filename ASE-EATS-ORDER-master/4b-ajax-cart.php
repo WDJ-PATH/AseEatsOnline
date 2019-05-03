@@ -73,8 +73,8 @@ switch ($_POST['req']) {
     <?php if (count($_SESSION['cart']) > 0) { ?>
     <form id="cart-checkout" method="post" onsubmit="return cart.checkout();">
       <input type="text" id="co_name" required value="<?=$_SESSION['name']?>" hidden />
-      <input type="email" id="co_email" required value="<?=$_SESSION['email']?>" hidden/>
-      <input type="submit" value="Checkout"/>
+      <input type="email" id="co_email" required value="<?=$_SESSION['email']?>" hidden />
+      <input align="center" type="submit" value="Checkout"/>
     </form>
     <?php }
     break;

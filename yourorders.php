@@ -38,6 +38,8 @@ echo '</br>
       <SECTION align=""><A HREF="/../index1.php"><IMG SRC="/../log.png" alt="Home"></IMG></A></SECTION>
       <b><font size="8" face="Courier New" color="black">Your Orders</font></b>
       </br>
+      <font size="5" face="Courier New" color="black">Click on Order ID to view bill</font>
+      </br>
       </br>
       <table border="0" cellspacing="2" cellpadding="2" align="center" width="1200" height="200"> 
       <tr> 

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$img= $file_name;
 	$desc= $_POST['desc'];
 	$price= $_POST['price'];
-	$sql = "INSERT INTO products(`product_name`,`product_image`,`product_description`,`product_price`) VALUES ('$name', '$img', '$desc', '$price');";
+	$sql = "INSERT INTO `products` (`product_name`,`product_image`,`product_description`,`product_price`) VALUES ('$name', '$img', '$desc', '$price');";
 	if(mysqli_query($mysqli, $sql))
 	{  
 		$message = "You have successfully added new food item!";
@@ -215,7 +215,7 @@ echo '</br>
 </div>
 <div class="form-group">
 <label for="price">Price</label>
-<input type="text" class="form-control" id="price" name="price" placeholder="Enter price" required />
+<input type="number" class="form-control" id="price" name="price" placeholder="Enter price" required />
 </div>
 <div class="form-group">
 <label for="price">Product Description</label>

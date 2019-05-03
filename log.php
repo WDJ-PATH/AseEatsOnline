@@ -155,7 +155,7 @@ function validate()
 					</span>
 					<div class="alert alert-error"><?=$_SESSION['message'] ?></div>
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input id="email" class="input100" type="text" name="email" placeholder="College mail ID">
+						<input id="email" class="input100" type="text" name="email" placeholder="Enter e-mail ID">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">

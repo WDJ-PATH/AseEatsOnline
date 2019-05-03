@@ -24,6 +24,9 @@
 }
 </style>
 <head><?php include("header.php"); ?></head>
+<NAV align="left">
+      <A HREF="yourorders.php" style="color: #000000">Go back to Your Orders</A>&nbsp&nbsp&nbsp
+</NAV>
 <?php  
 session_start();
 $mysqli = new mysqli("localhost", "root", "newhorizon", "ACCASE"); 
@@ -36,7 +39,8 @@ while ($row = $result->fetch_assoc()) {
   }
 }
 
-echo '</br>
+echo '
+      </br>
       </br>
       </br>
       </br>
